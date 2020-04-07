@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajax prectice</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Hello Universe!</h1>
+  </header>
+  <div id="content"></div>
+  <script>
+    // json
+    // const xhr = new XMLHttpRequest();
+
+    // xhr.open("GET", "./data/data.json");
+    // xhr.send();
+
+    // xhr.onreadystatechange = function () {
+    //   console.log(xhr.responseText);
+    //   if (xhr.readyState !== 4) return;
+    //   if (xhr.status === 200) {
+    //     const data = JSON.parse(xhr.responseText);
+    //     let config = "<div><ul>";
+    //     data.tours.map((tour) => {
+    //       config += `<li><h2>${tour.location}</h2>
+    //       <p>${tour.details}</p>
+    //       <p>${tour.region}</p></li>
+    //       `;
+    //     });
+    //     config += "</ul></div>";
+    //     document.getElementById("content").innerHTML = config;
+    //   } else {
+    //     console.log(`${xhr.status}!There's some errors!$${xhr.readyState}`);
+    //   }
+    // };
+
+    // jsonp
+
+    function showTours(data) {
+
+      let config = '<ul>';
+      data.tours.map(tour => {
+        config += `<li><h2>${tour.region}</h2></li>
+              <p>${tour.location}</p>
+              <p>${tour.details}</p></li>
+              `
+      })
+      config += '</ul>'
+
+      document.getElementById("content").innerHTML = config;
+    }
+  </script>
+  <script src="./data/jsonp.js"></script>
+</body>
+
+</html>
